@@ -1,24 +1,21 @@
-import datetime
+from parser import paser
 
-def parse(reg_number):
-    if len(reg_number) < 0:
-        raise ValueError('empty string')
+class calculator:
+    def __init__(self, jumin_number, office_start_date, military_started_date, military_end_time):
+        p = paser()
+        self.jumin_number = p.six_digits_to_datetime(jumin_number)
+        self.office_start_date = p.six_digits_to_datetime(office_start_date)
+        self.military_started_date = p.six_digits_to_datetime(military_started_date)
+        self.military_end_time = p.six_digits_to_datetime(military_end_time)
 
-    if len(reg_number) is not 6:
-        raise ValueError('string is not suitable length (need 6 digit, ex: 930220 )')
+    def age_at_join(self, datetime):
+        pass
 
-    if not reg_number:
-        raise ValueError('empty string')
+    def during_time_in_military(self, datetime):
+        pass
 
-    if not reg_number.isdecimal():
-        raise ValueError('no decimal string')
+    def days_of_age(self, datetime):
+        pass
 
-    year = reg_number[:2]
-    month = reg_number[3:4]
-    day = reg_number[5:6]
-
-    return (int(year), int(month), int(day))
-
-year, month, day = parse('93220')
-
-datetime.datetime(year, month, day + 1)
+    def Applicability(self):
+        pass
